@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/Uno-client/static/css/main.39025ab3.css",
+    "main.js": "/Uno-client/static/js/main.f8ebe878.js",
+    "static/js/787.acab2a0a.chunk.js": "/Uno-client/static/js/787.acab2a0a.chunk.js",
+    "index.html": "/Uno-client/index.html",
+    "main.39025ab3.css.map": "/Uno-client/static/css/main.39025ab3.css.map",
+    "main.f8ebe878.js.map": "/Uno-client/static/js/main.f8ebe878.js.map",
+    "787.acab2a0a.chunk.js.map": "/Uno-client/static/js/787.acab2a0a.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.39025ab3.css",
+    "static/js/main.f8ebe878.js"
+  ]
+}
