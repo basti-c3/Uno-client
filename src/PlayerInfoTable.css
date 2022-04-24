@@ -1,0 +1,75 @@
+#player-info-container {
+    border: black solid;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 5px;
+    border-radius: 10%;
+}
+
+.player-info {
+    display: grid;
+    grid-template-columns: 40% 40% 40%;
+    width: 100%;
+    align-items: center;
+    font-size: 23px;
+}
+.info-part {
+    margin-right: 10px;
+    overflow: hidden;
+}
+
+.card-count {
+    width: 25px;
+    height: 40px;
+    float: left;
+    border-radius: 5px;
+    display: table;
+    box-sizing: border-box;
+    padding: 2px;
+    margin: 2px;
+    font-family: 'Source Sans Pro', sans-serif;
+    color: yellow;
+    text-shadow: 1px 1px 0 #000000,
+    -1px -1px 0 #000000,
+    -1px 1px 0 #000000,
+    1px -1px 0 #000000,
+    1px 0 0 #000000,
+    -1px 0 0 #000000,
+    0 -1px 0 #000000,
+    0 1px 0 #000000,
+    4px 4px 0 #000000;
+    box-shadow: 0 0 5px #aaaaaa;
+    text-align: center;
+    position: relative;
+}
+
+.card-count .inner {
+    display: table-cell;
+    vertical-align: middle;
+    border-radius: 3px;
+    overflow: hidden;
+    background: black;
+}
+
+.card-count .mark {
+    display: inline-block;
+    vertical-align: middle;
+    background: red;
+    margin: auto;
+    padding: 2px 5px;
+    line-height: 1.4;
+    border-radius: 100px 60px / 120px 60px;
+}
+
+.points {
+    font-family: 'Source Sans Pro', sans-serif;
+}
+
+#info-labels {
+    font-size: 18px;
+}
+
+.hisTurn {
+    font-weight: bold;
+}

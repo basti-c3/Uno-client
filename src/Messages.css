@@ -1,0 +1,26 @@
+.message-list {
+    max-width: 500px;
+    width: 100%;
+}
+
+.message-container {
+    display: flex;
+    flex-direction: row;
+    padding: 0.4rem;
+    border-bottom: 1px solid #eeeeee;
+}
+
+.user, .date {
+    font-size: 0.6rem;
+    color: #888888;
+}
+
+.user {
+    min-width: 70px;
+}
+
+.message {
+    flex-grow: 1;
+    font-size: 0.9rem;
+    padding-right: 5px;
+}

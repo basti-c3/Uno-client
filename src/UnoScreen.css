@@ -1,0 +1,72 @@
+#uno-screen-wrapper {
+    height: 100%;
+}
+#whoseTurn {
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    height: 4%;
+}
+
+#card-section {
+    display: flex;
+    flex-direction: column;
+    height: 88%;
+}
+
+#card-table {
+    height: 50%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+#private-section {
+    height: 50%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+#card-hand {
+    height: 100%;
+    width: 94%;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+#button-section {
+    width: 6%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#card-pile {
+}
+
+#draw-pile {
+}
+
+.card-container {
+    cursor: pointer;
+}
+
+.card-in-the-middle {
+    cursor: auto!important;
+}
+
+.uno-button {
+    margin: 10px;
+    padding: 5px;
+}
+
+#start-game-button {
+    position: absolute;
+}
