@@ -1,7 +1,6 @@
 {
   "name": "uno-client",
   "version": "0.1.0",
-  "homepage": "https://basti-c3.github.io/Uno-client",
   "private": true,
   "dependencies": {
     "@okta/okta-auth-js": "5.9.1",

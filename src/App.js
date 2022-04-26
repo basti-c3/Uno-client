@@ -13,7 +13,7 @@ function App() {
     let [socket, setSocket] = useState(null);
     let [userList, setUserList] = useState([]);
     useEffect(() => {
-        const newSocket = io(`http://${window.location.hostname}:3000`);//, token && {query: {token}});
+        const newSocket = io(`http://${window.location.hostname}:3000`); // https://unoapi.janraab.de
         setSocket(newSocket);
 
         return () => newSocket.close();
@@ -43,7 +43,7 @@ function App() {
         }
 
         const userListListener = (gottenUserList) => {
-            setUserList(gottenUserList);
+            setUserList(JSON.parse(gottenUserList));
         }
 
         const debugHandler = (...args) => console.log("DEBUG-App: ", args);
@@ -65,7 +65,7 @@ function App() {
                     ? (<div>Signed in as {loggedUser}</div>)
                     : (<div>
                         <div>Not signed in</div>
-                        <form onSubmit={(e) => {
+                        <form id='player-name-input' onSubmit={(e) => {
                             e.preventDefault();
                             setNewUser();
                         }}>

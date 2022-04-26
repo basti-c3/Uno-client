@@ -12,6 +12,10 @@
     justify-content: space-between;
 }
 
+#player-name-input {
+    max-width: 50%;
+}
+
 .App {
     height: 100%;
     width: 100%;

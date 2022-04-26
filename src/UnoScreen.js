@@ -148,22 +148,12 @@ function UnoScreen(props) {
     const callUno = function () {
         if (!myTurn) return;
         if (drawCardNumber !== 1) return;
-        if (userCardHand.length !== 2) {
-            socket.emit('drawCards', 2);
-
-        } else {
-            setUnoClicked(true);
-        }
+        setUnoClicked(true);
     }
 
     return (whoseTurn && !gameFinished
             ?
             <div id='uno-screen-wrapper'>
-                <button
-                    onClick={startGame}
-                    id='start-game-button'
-                    className='uno-button'>Start Game
-                </button>
                 <div id='whoseTurn'>
                     {myTurn
                         ? <h1>It is my turn!</h1>
@@ -232,9 +222,7 @@ function UnoScreen(props) {
                                 </div>
                                 :
                                 <div id='normal-buttons-container'>
-                                    <div className='uno-button'>
-                                        <button onClick={callUno}>Uno</button>
-                                    </div>
+                                    <button className='uno-button' onClick={callUno}>Uno</button>
                                 </div>
                             }
                         </div>
@@ -242,11 +230,13 @@ function UnoScreen(props) {
                 </div>
             </div>
 
-            : <button
-                onClick={startGame}
-                id='start-game-button'
-                className='uno-button'>Start
-            </button>
+            : <div id='start-screen'>
+                <button
+                    onClick={startGame}
+                    id='start-game-button'
+                    className='uno-button'>Start Game
+                </button>
+            </div>
     );
 }
 

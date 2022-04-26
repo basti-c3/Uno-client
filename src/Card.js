@@ -44,13 +44,15 @@ function Card(props) {
                 </div>
             );
         } else if (cardObj?.speciality === '+4') {
+            console.log(`wish${cardObj.color}`);
             return (<img
-                className='card-img'
+                className={`card-img wish-${cardObj.color}`}
                 src="https://4.bp.blogspot.com/-DCSoZ2YHkUI/UaxfRn5Vg6I/AAAAAAAATBA/nVbT-YWCdQw/s1600/5.png"
                 alt="+4"/>);
         } else if (cardObj?.speciality === 'wish') {
+            console.log(`wish${cardObj.color}`);
             return (<img
-                className='card-img'
+                className={`card-img wish-${cardObj.color}`}
                 src="https://3.bp.blogspot.com/-TrKKRzX_uNU/UaxfRhGTpmI/AAAAAAAATA8/A7lej1-vCe4/s1600/310863+copy.png"
                 alt="Wünsche-karte"/>);
         } else {

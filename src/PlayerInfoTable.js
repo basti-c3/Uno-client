@@ -9,28 +9,12 @@ function PlayerInfoTable(props) {
     const [whoseTurn, setWhoseTurn] = useState('');
 
     useEffect(() => {
-        const cardHandCountListener = (userName, cardHandCount) => {
-            if (!userName) return;
-            let copyCardHandCounts = {};
-            Object.assign(copyCardHandCounts, cardHandCounts);
-            if (cardHandCount === -1) { // user logged out
-                delete copyCardHandCounts[userName];
-            } else {
-                copyCardHandCounts[userName] = cardHandCount;
-            }
-            setCardHandCounts(copyCardHandCounts);
+        const cardHandCountListener = (cardHandCounts) => {
+            setCardHandCounts(JSON.parse(cardHandCounts));
         };
 
-        const pointsChangedListener = (userName, newPoints) => {
-            if (!userName) return;
-            let copyTotalPoints = {};
-            Object.assign(copyTotalPoints, points);
-            if (newPoints === -1) { // user logged out
-                delete copyTotalPoints[userName];
-            } else {
-                copyTotalPoints[userName] = newPoints;
-            }
-            setPoints(copyTotalPoints);
+        const pointsChangedListener = (newPoints) => {
+            setPoints(JSON.parse(newPoints));
         }
 
         const whoseTurnListener = (userInfo) => {
@@ -46,7 +30,7 @@ function PlayerInfoTable(props) {
             socket.off('pointsChanged', pointsChangedListener);
             socket.off('whoseTurn', whoseTurnListener);
         }
-    }, [cardHandCounts, socket]);
+    }, [cardHandCounts, points, socket]);
 
     return (
         <div id='player-info-container'>
@@ -59,19 +43,19 @@ function PlayerInfoTable(props) {
                 ? userList !== []
                     ? userList.map((user) => {
                         return (
-                            <div key={user} className='player-info'>
-                                {user === whoseTurn
-                                    ? <div className='info-part user-name hisTurn'>{user}</div>
-                                    : <div className='info-part user-name'>{user}</div>
+                            <div key={user['socketId'] ?? user['name'] ?? 'key'} className='player-info'>
+                                {user['name'] === whoseTurn
+                                    ? <div className='info-part user-name hisTurn'>{user['name']}</div>
+                                    : <div className='info-part user-name'>{user['name']}</div>
                                 }
                                 <div>
                                     <div className={`info-part card-count`}>
                                         <span className="inner">
-                                            <span className="mark">{cardHandCounts[user] ?? 0}</span>
+                                            <span className="mark">{cardHandCounts[user['socketId']] ?? 0}</span>
                                         </span>
                                     </div>
                                 </div>
-                                <div className='info-part points'>{points[user] ?? 0}</div>
+                                <div className='info-part points'>{points[user['socketId']] ?? 0}</div>
                             </div>
                         );
                     })
