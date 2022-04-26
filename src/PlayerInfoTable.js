@@ -4,13 +4,14 @@ import {useEffect, useState} from "react";
 function PlayerInfoTable(props) {
     const socket = props?.socket;
     const userList = props?.users;
-    const [cardHandCounts, setCardHandCounts] = useState({});
+    const [cardHands, setCardHands] = useState({});
     const [points, setPoints] = useState({});
     const [whoseTurn, setWhoseTurn] = useState('');
 
     useEffect(() => {
-        const cardHandCountListener = (cardHandCounts) => {
-            setCardHandCounts(JSON.parse(cardHandCounts));
+        const cardHandCountListener = (newCardHands) => {
+            setCardHands(JSON.parse(newCardHands));
+            console.log(JSON.parse(newCardHands));
         };
 
         const pointsChangedListener = (newPoints) => {
@@ -30,7 +31,7 @@ function PlayerInfoTable(props) {
             socket.off('pointsChanged', pointsChangedListener);
             socket.off('whoseTurn', whoseTurnListener);
         }
-    }, [cardHandCounts, points, socket]);
+    }, [cardHands, points, socket]);
 
     return (
         <div id='player-info-container'>
@@ -51,7 +52,7 @@ function PlayerInfoTable(props) {
                                 <div>
                                     <div className={`info-part card-count`}>
                                         <span className="inner">
-                                            <span className="mark">{cardHandCounts[user['socketId']] ?? 0}</span>
+                                            <span className="mark">{cardHands[user['socketId']]?.length ?? 0}</span>
                                         </span>
                                     </div>
                                 </div>

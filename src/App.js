@@ -13,7 +13,7 @@ function App() {
     let [socket, setSocket] = useState(null);
     let [userList, setUserList] = useState([]);
     useEffect(() => {
-        const newSocket = io(`https://unoapi.janraab.de`); // https://unoapi.janraab.de  &&  http://${window.location.hostname}
+        const newSocket = io(`http://${window.location.hostname}:3000`); // https://unoapi.janraab.de  &&  http://${window.location.hostname}:3000
         setSocket(newSocket);
 
         return () => newSocket.close();
