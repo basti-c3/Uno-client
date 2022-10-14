@@ -86,7 +86,6 @@ function UnoScreen(props) {
     }
 
     const onCardClicked = function (cardObj) {
-        if (wouldntPlay) setWouldntPlay(false);
         // Can't finish with green
         if (userCardHand.length === 1 && cardObj.color === 'g') return;
         // Have to draw cards
@@ -115,6 +114,7 @@ function UnoScreen(props) {
                     setSelectColor(true);
                     setPlayedBlackCard(cardObj);
                 } else {
+                    if (wouldntPlay) setWouldntPlay(false);
                     socket.emit('layDownCard', cardObj);
                     setDrawCardNumber(1);
                 }
