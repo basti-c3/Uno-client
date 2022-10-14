@@ -68,6 +68,13 @@
     border-radius: 5px;
 }
 
+.uno-button-clicked {
+    margin: 10px;
+    padding: 10px;
+    border-radius: 10px;
+    font-size: 20px;
+}
+
 .uno-button:hover {
     background-color: #c1d8d8;
     border-color: black;

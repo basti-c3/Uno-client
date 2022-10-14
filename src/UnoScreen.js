@@ -130,9 +130,11 @@ function UnoScreen(props) {
                 setWouldntPlay(true);
             }
             socket.emit('drawCards', drawCardNumber);
+            if (unoClicked) setUnoClicked(false);
             setDrawCardNumber(1);
         } else {
             socket.emit('passedTurn');
+            setUnoClicked(false);
             setWouldntPlay(false);
             setSelectColor(false);
         }
@@ -147,6 +149,7 @@ function UnoScreen(props) {
     const callUno = function () {
         if (!myTurn) return;
         if (drawCardNumber !== 1) return;
+        if (userCardHand.length !== 2) return;
         setUnoClicked(true);
     }
 
@@ -220,9 +223,13 @@ function UnoScreen(props) {
                                     <div/>
                                 </div>
                                 :
-                                <div id='normal-buttons-container'>
-                                    <button className='uno-button' onClick={callUno}>Uno</button>
-                                </div>
+                                    unoClicked
+                                        ? <div id='normal-buttons-container'>
+                                            <button className='uno-button-clicked' onClick={callUno}>Uno</button>
+                                        </div>
+                                        : <div id='normal-buttons-container'>
+                                            <button className='uno-button' onClick={callUno}>Uno</button>
+                                        </div>
                             }
                         </div>
                     </div>
